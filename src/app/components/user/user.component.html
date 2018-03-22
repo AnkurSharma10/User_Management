@@ -1,0 +1,55 @@
+<div>
+  <alert *ngIf="alertMessage.display" type="{{alertMessage.type}}">
+    {{alertMessage.message}}
+  </alert>
+</div>
+<div class="container-fluid offset-md-1 col-md-10">
+  <table class="table table-hover table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Contact</th>
+        <th>Gender</th>
+        <th>Designation</th>
+        <th>Known Techs</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of returnedArray">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.contact}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.designation}}</td>
+        <td>{{user.knownTechs}}</td>
+        <td>
+          <a class="btn btn-warning" routerLink='/editUser/{{user.id}}'>Edit</a>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="openModal(deleteModal,user.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="col-xs-12 col-12">
+      <pagination [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" [(ngModel)]="curentPage" (pageChanged)="pageChanged($event)"></pagination>
+    </div>
+  </div>
+</div>
+<ng-template #deleteModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Delete User</h4>
+  </div>
+  <div class="modal-body">
+    Are you sure you want to delete the user?
+    <button type="submit" (click)="deleteUser()" class="btn btn-danger">Delete</button>
+    <button type="submit" (click)="modalRef.hide()" class="btn btn-success">Cancel</button>
+  </div>
+</ng-template>
+<app-statistics-chart></app-statistics-chart>
