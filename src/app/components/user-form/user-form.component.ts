@@ -110,16 +110,12 @@ export class UserFormComponent implements OnInit {
   }
 
   isValid() {
-    this.isFormValid = true;
-    if (this.userForm.controls['id'].value == null ||
+    return !(this.userForm.controls['id'].value == null ||
     this.userForm.controls['name'].value == null ||
     this.userForm.controls['age'].value == null ||
     this.userForm.controls['contact'].value == null ||
     this.userForm.controls['gender'].value == null ||
     this.userForm.controls['designation'].value == null ||
-    this.userForm.controls['knownTechs'].value == null) {
-      this.isFormValid = false;
-    }
-    return this.isFormValid;
+    this.userForm.controls['knownTechs'].value == null);
   }
 }
