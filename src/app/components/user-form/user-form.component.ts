@@ -17,7 +17,7 @@ export class UserFormComponent implements OnInit {
 
   isFormValid: boolean;
 
-  designations = ['Business Analyst', 'Programmer Analyst', 'Quality Analyst', 'Design Analyst'];
+  designations = ['Business Analyst', 'Design Analyst', 'Programmer Analyst', 'Quality Analyst'];
   knownTechs = [
     'Java',
     'Angular',

@@ -9,22 +9,22 @@
     <input class="form-control" formControlName="id">
   </div>
   <div class="form-group form-inline">
-    <label for="name" class="col-md-2">Name:</label>
-    <input class="form-control col-md-8" formControlName="name">
+    <label for="name" class="col-md-2">*Name:</label>
+    <input class="form-control col-md-8" placeholder="Name must be from 5 to 50 length." formControlName="name">
   </div>
 
   <div class="form-group form-inline">
-    <label class="col-md-2">Age:</label>
-    <input type="number" class="form-control col-md-8" formControlName="age">
+    <label class="col-md-2">*Age:</label>
+    <input type="number" class="form-control col-md-8" placeholder="Minimum req 18." formControlName="age">
   </div>
 
   <div class="form-group form-inline">
-    <label class="col-md-2">Contact:</label>
-    <input type="number" class="form-control col-md-8" formControlName="contact">
+    <label class="col-md-2">*Contact:</label>
+    <input type="number" class="form-control col-md-8" placeholder="10 digits.Number starting from 7,8,9 are valid." formControlName="contact">
   </div>
 
   <div class="form-group radio form-inline">
-    <label class="col-md-2">Gender:</label>
+    <label class="col-md-2">*Gender:</label>
     <label class="col-md-2">
       <input type="radio" formControlName="gender" value="Male">Male</label>
     <label class="col-md-2">
@@ -32,18 +32,21 @@
   </div>
 
   <div class="form-group form-inline">
-    <label class="col-md-2">Designation:</label>
+    <label class="col-md-2">*Designation:</label>
     <select class="form-control col-md-8" formControlName="designation">
-      <option *ngFor="let desg of designations" value="{{desg}}">{{desg}}</option>
+      <option *ngFor="let desg of designations" selected="{{desg}}" value="{{desg}}">{{desg}}</option>
     </select>
 
   </div>
   <div class="form-group form-inline">
-    <label class="col-md-2">Known Techs:</label>
+    <label class="col-md-2">**Known Techs:</label>
     <select multiple="multiple" class="form-control col-md-8" formControlName="knownTechs">
       <option *ngFor="let kt of knownTechs" value="{{kt}}">{{kt}}</option>
     </select>
   </div>
   <button (click)="addUser(userForm.value)" [disabled]="isValid()"class="btn btn-success">Submit</button>
 </form>
+<div class="offset-md-4 col-md-4" style="text-align: left">Footnote:<br/>
+  * : Required field.<br/>
+  **: Can have multiple value and is required.</div>
 </div>
