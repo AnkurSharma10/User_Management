@@ -15,6 +15,8 @@ export class UserFormComponent implements OnInit {
   title: String;
   id: number;
 
+  isFormValid: boolean;
+
   designations = ['Business Analyst', 'Programmer Analyst', 'Quality Analyst', 'Design Analyst'];
   knownTechs = [
     'Java',
@@ -105,5 +107,19 @@ export class UserFormComponent implements OnInit {
         knownTechs: user.knownTechs
       });
     });
+  }
+
+  isValid() {
+    this.isFormValid = true;
+    if (this.userForm.controls['id'].value == null ||
+    this.userForm.controls['name'].value == null ||
+    this.userForm.controls['age'].value == null ||
+    this.userForm.controls['contact'].value == null ||
+    this.userForm.controls['gender'].value == null ||
+    this.userForm.controls['designation'].value == null ||
+    this.userForm.controls['knownTechs'].value == null) {
+      this.isFormValid = false;
+    }
+    return this.isFormValid;
   }
 }

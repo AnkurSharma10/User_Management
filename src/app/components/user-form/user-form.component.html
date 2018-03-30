@@ -44,6 +44,6 @@
       <option *ngFor="let kt of knownTechs" value="{{kt}}">{{kt}}</option>
     </select>
   </div>
-  <button (click)="addUser(userForm.value)" class="btn btn-success">Submit</button>
+  <button (click)="addUser(userForm.value)" [disabled]="isValid()"class="btn btn-success">Submit</button>
 </form>
 </div>
